@@ -6,8 +6,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {latitude: 0.0, longitude: 0.0};
-    
+
     //関数自体にこのクラスが継承されていないため、thisが使えないので、bindでthisを指定する。
+    //https://tech-it.r-net.info/program/javascript/245/
     this.successCallback = this.successCallback.bind(this);
   }
 
