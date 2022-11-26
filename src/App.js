@@ -6,29 +6,37 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {latitude: 0.0, longitude: 0.0};
+    
+    //関数自体にこのクラスが継承されていないため、thisが使えないので、bindでthisを指定する。
     this.successCallback = this.successCallback.bind(this);
   }
 
 
   headClick() {
-    // this.setState({ count: this.state.count + 1 });
+    //ボタンが押された時に、位置情報を取得する。
+    //サクセスコールバック、要するに、成功したときの関数と、エラーコールバック、要するに、失敗したときの関数を指定する。
     navigator.geolocation.getCurrentPosition(this.successCallback, this.errorCallback);
   }
 
+  //成功したときの関数
   successCallback(position){
+    //緯度・緯度を取得
     const getLatitude = position.coords.latitude;
     const getLongitude = position.coords.longitude;
 
     console.log(getLatitude);
     console.log(getLongitude);
 
+    //緯度・緯度をセット
     this.setState({latitude: getLatitude, longitude: getLongitude});
   }
 
+  //失敗したときの関数
   errorCallback(error){
     alert("位置情報が取得できませんでした");
   }
 
+  //表示するHTML
   render() {
     return (
       <div>
