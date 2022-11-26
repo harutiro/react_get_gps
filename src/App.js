@@ -2,6 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 
+//BootStrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button , Form , FormControl , Nav , Navbar , NavDropdown } from 'react-bootstrap';
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -45,7 +50,9 @@ class App extends React.Component {
         <h3>{this.state.latitude}</h3>
         <h1>longitude</h1>
         <h3>{this.state.longitude}</h3>
-        <button onClick={() => this.headClick()}>getGPS!!</button>
+        {/* <button onClick={() => this.headClick()}>getGPS!!</button> */}
+        <button class="btn btn-outline-secondary" onClick={() => this.headClick()} >getGPS!!</button>
+        {/* <Button variant="outline-secondary" onClick={() => this.headClick()}>getGPS!!</Button> */}
       </div>
     );
   }
